@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>3D-MAP</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet"> 
+    <link href="css/lightbox.css" rel="stylesheet"> 
+	<link href="css/main.css" rel="stylesheet">
+	<link href="css/responsive.css" rel="stylesheet">
+
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+
+</head><!--/head-->
+
+<body>
+<header id="header">      
+        <div class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="index.html">CODE1230-ASSIGNMENT3</a></li>
+                        <li class="active"><a href="https://lxw5232148.github.io/A2-CODE1230/map.html" target="_blank">BACKGROUD IFORMATION</a></li>          
+
+                    </ul>
+                </div>
+                <div class="search">
+                    <form role="form">
+                        <i class="fa fa-search"></i>
+                        <div class="field-toggle">
+                            <input type="text" class="search-form" autocomplete="off" placeholder="Search">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--/#header-->
+
+
+
+
+
+<li class="map" style="height: 500px; list-style: none; ">
+
+            
+<div id='map' style='width:80%;height: 500px;margin-left: 140px;top: 100px'><h1 style="color: #dbb075;font-size: 20px;font-weight: 900;">3D MAP</h1></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiY3J1c2gxMTAyIiwiYSI6ImNqYWZhMGttdTEyNmkzMnJ6c3FkaWRzdWgifQ.4D2wtlo2xcG5txDWnv1jCQ';
+var map = new mapboxgl.Map({
+    style: 'mapbox://styles/mapbox/light-v9',
+    center: [151.233000, -33.983000],
+    zoom: 12,
+    pitch: 45,
+    bearing: -17.6,
+    container: 'map'
+});
+
+map.on('load', function() {
+
+    map.addLayer({
+        "id": "data",
+        "type": "fill-extrusion",
+        "source": {
+            'type': 'geojson',
+            'data': './1.geojson'
+        },
+        'layout': {
+            'visibility': 'visible'
+            },
+        'paint': {
+                'fill-extrusion-color' : {
+                    'property': 'color',
+                    'type': 'identity'
+                },
+                'fill-extrusion-height' : {
+                    'type': 'identity',
+                    'property': 'height'
+                },
+                'fill-extrusion-base' : {
+                    'type': 'identity',
+                    'property': 'base_height'
+                },
+                 'fill-extrusion-opacity': 1
+            }
+
+    });
+});
+
+</script>
+
+</li>
+
+
+   
+
+    <section id="features">
+        <div class="container">
+            <div class="row">
+                <div class="single-features">
+                    <div class="col-sm-5 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <img src="images/1.png" class="img-responsive" alt="">
+                    </div>
+                    <div class="col-sm-6 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <h2>Long Commute Time</h2>
+                        <P>People are a far way to the workplace, so if there are two things to care about, work and raise children, people often choose raise children, and then choose the mother or father to give up their work to raise children, the answer always to be the mother.</P>
+                    </div>
+                </div>
+                <div class="single-features">
+                    <div class="col-sm-6 col-sm-offset-1 align-right wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <h2>Built for the Problem</h2>
+                        <P>Long-term commuting is often because the place of residence has a long distance from where the work gathers. People need to be able to reach it through various modes of transportation, but if the house, work space, place to raise children, and other public spaces are vertical The direction is dispersed to form a vertical settlement, and the traffic is transported to each floor through a high-speed vertical elevator, which will greatly reduce the commuting distance and work and take care of the children.</P>
+                    </div>
+                    <div class="col-sm-5 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <img src="images/2.png" class="img-responsive" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+     <!--/#features-->
+
+<div id="solution" align="center" style="height: 500px">
+     <li style="height: 500px; list-style: none; ">
+        <img src="images/1.jpg" style="width: 50%;">
+     </li>
+ </div>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="copyright-text text-center">
+                        <p>LI XIAOWEN Z5232148</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--/#footer-->
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/lightbox.min.js"></script>
+    <script type="text/javascript" src="js/wow.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>   
+</body>
+</html>
